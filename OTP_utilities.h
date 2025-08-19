@@ -8,6 +8,27 @@
 #define LOGARITHMIC 1
 #define LOG LOGARITHMIC
 
+#define RED 31
+#define BLUE 36
+#define MAGENTA 35
+#define BOLD 44
+#define WARNING 41
+
+#define special_print(colour, fmt, ...)                                                                                \
+    printf("\033[0;%dm", colour);                                                                                      \
+    printf(fmt, ##__VA_ARGS__);                                                                                        \
+    printf("\033[0m\n");
+
+#define bold_print(fmt, ...)                                                                                           \
+    printf("\033[1;32;44m");                                                                                           \
+    printf(fmt, ##__VA_ARGS__);                                                                                        \
+    printf("\033[0m\n");
+
+#define print_error(fmt, ...)                                                                                          \
+    printf("\033[1;32;41m");                                                                                           \
+    printf(fmt, ##__VA_ARGS__);                                                                                        \
+    printf("\033[0m\n");
+
 /*
 One-Trick Pony functions.
 Generally only useful for exactly what they do.
